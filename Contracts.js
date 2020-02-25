@@ -1,6 +1,31 @@
+/**
+ * Extend the Array object
+ * @param candid The string to search for
+ * @returns Returns the index of the first match or -1 if not found
+*/
+Array.prototype.search = function(candid) {    
+  for (var i=0; i<this.length; i++){                
+      if (this[i].toLowerCase().indexOf(candid.toLowerCase()) > -1){
+        return this[i];
+      }
+  }
+  return undefined;
+};
 
+Array.prototype.findAll = function(candid) {
+  var matches = [];
+  for (var i=0; i<this.length; i++){
+      if (this[i].toLowerCase().indexOf(candid.toLowerCase()) > -1){
+        matches.push(this[i]);
+      }      
+  }
+  if(matches.length < 1)
+    return undefined;
+  else  
+    return matches;
+};
 
-var contractTypes = ['Asi.Services.DataVault.Contracts.PaymentTokenData, Asi.Contracts',
+function contractTypes(){return ['Asi.Services.DataVault.Contracts.PaymentTokenData, Asi.Contracts',
 'Asi.Services.DataVault.Contracts.AccountData, Asi.Contracts',
 'Asi.Services.DataVault.Contracts.BankAccountData, Asi.Contracts',
 'Asi.Services.DataVault.Contracts.CardAccountData, Asi.Contracts',
@@ -653,35 +678,11 @@ var contractTypes = ['Asi.Services.DataVault.Contracts.PaymentTokenData, Asi.Con
 'Asi.Soa.Nrds.DataContracts.NrdsAssociationSyncRequest, Asi.Contracts',
 'Asi.Soa.Nrds.DataContracts.NrdsMemberSyncRequest, Asi.Contracts',
 'Asi.Soa.Nrds.DataContracts.NrdsOfficeSyncRequest, Asi.Contracts'];
-
-/**
- * Extend the Array object
- * @param candid The string to search for
- * @returns Returns the index of the first match or -1 if not found
-*/
-contractTypes.prototype.search = function(candid) {
-  for (var i=0; i<this.length; i++)
-      if (this[i].indexOf(candid) !== -1)
-          return this[i];
-  return undefined;
-};
-
-contractTypes.prototype.findAll = function(candid) {
-  var matches = [];
-  for (var i=0; i<this.length; i++){
-      if (this[i].indexOf(candid) !== -1)
-      matches.push(this[i]);
-  }
-  if(matches.length < 1)
-    return undefined;
-  else  
-    return matches;
-};
-
+}
 
 function GetContract(contract)
-{  return contractTypes.search(contract);}
+{  return contractTypes().search(contract);}
 function GetAllMatchingContracts(contract)
-{  return contractTypes.findAll(contract);}
+{  return contractTypes().findAll(contract);}
 function GetAll()
-{  return contractTypes;}
+{  return contractTypes();}
