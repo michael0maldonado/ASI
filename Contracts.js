@@ -1,4 +1,4 @@
-/**
+/****
  * Extend the Array object
  * @param candid The string to search for
  * @returns Returns the index of the first match or -1 if not found
