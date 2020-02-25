@@ -653,3 +653,5 @@
     'Asi.Soa.Nrds.DataContracts.NrdsAssociationSyncRequest, Asi.Contracts',
     'Asi.Soa.Nrds.DataContracts.NrdsMemberSyncRequest, Asi.Contracts',
     'Asi.Soa.Nrds.DataContracts.NrdsOfficeSyncRequest, Asi.Contracts'];}
+
+GetModels();
