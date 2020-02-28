@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,17 +8,16 @@
     Hi World
     </pre>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/michael0maldonado/ASI/axiosexample.js">
-		      <script type="text/javascript">                 
-              axios.get('api/Party?id=113')
+        <script src="https://cdn.jsdelivr.net/gh/michael0maldonado/ASI/axiosexample.js"></script>        
+        <script type="text/javascript">
+            axios.get('api/Party?id=113')
                 .then(response => {
-                    const partyData= JSON.stringify(response);                    
+                    const partyData = JSON.stringify(response);
                     // append to DOM
                     const element = document.getElementsByClassName('output')[0];
-                    element.innerHTML = partyData;                    
+                    element.innerHTML = partyData;
                 })
                 .catch(error => console.error(error));                    
-        	</script>
-	      </script>        
+        </script>
     </body>
 </html>
